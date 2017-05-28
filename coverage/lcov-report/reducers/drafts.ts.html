@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for reducers/drafts.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\prettify.css" />
+    <link rel="stylesheet" href="..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\index.html">All files</a> / <a href="index.html">reducers</a> drafts.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>16/32</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">22.22% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>2/9</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">42.86% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>3/7</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">48.39% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>15/31</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {
+  Action,
+  CHANGE,
+  Change,
+  CLEAN,
+  Clean,
+  CREATE,
+  Create
+} from '../actions/drafts';
+<span class="fstat-no" title="function not covered" ></span>
+export interface Draft {<span class="cstat-no" title="statement not covered" ></span>
+  subjectId: string<span class="cstat-no" title="statement not covered" >;</span>
+  te<span class="cstat-no" title="statement not covered" >xt: string;</span>
+}
+&nbsp;
+export interface Message extends Draft {
+  id: string;
+  date: Date;
+}<span class="fstat-no" title="function not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+export type State =<span class="cstat-no" title="statement not covered" > Map&lt;string, Dr</span>aft&gt;;
+<span class="cstat-no" title="statement not covered" ></span>
+const defaultState: State = new Map([
+  [null, {
+    subje<span class="fstat-no" title="function not covered" >ctId: null</span>,
+    text: ''<span class="cstat-no" title="statement not covered" ></span>
+  }]<span class="cstat-no" title="statement not covered" ></span>
+]);<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+export function createCase(state: State, action: Create): State {
+  const { subjectId } = action;
+  const result = new Map(state);
+&nbsp;
+  return result.set(subjectId, {
+    subj<span class="cstat-no" title="statement not covered" >ectId,</span>
+    text: ''
+  })<span class="cstat-no" title="statement not covered" >;</span>
+}
+&nbsp;
+export function changeCase(state: State, action: Change): State {
+  const {
+    subj<span class="branch-0 cbranch-no" title="branch not covered" >ectId,</span>
+    text<span class="cstat-no" title="statement not covered" ></span>
+  } = ac<span class="branch-1 cbranch-no" title="branch not covered" >tion;</span>
+  const resu<span class="cstat-no" title="statement not covered" >lt = new Map(state);</span>
+<span class="branch-2 cbranch-no" title="branch not covered" ></span>
+  return res<span class="cstat-no" title="statement not covered" >ult.set(subjectId, {</span>
+    ...result.get(subjectId),
+    text
+  });
+}
+&nbsp;
+export function cleanCase(state: Stat<span class="branch-0 cbranch-no" title="branch not covered" >e, ac</span>tion: Clean): State {
+  const { subjectId } = action;
+  const result = new Map(state);
+&nbsp;
+  if (sub<span class="fstat-no" title="function not covered" >jectId ==</span>= null) {<span class="branch-0 cbranch-no" title="branch not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    result.set(subjectId, {</span>
+      subjectId: null,
+      text: ''
+    });
+  } else {
+    result.delete(subjectId);
+  }
+&nbsp;
+  return result;
+}
+&nbsp;
+export default function(state: State = defaultState, action: Action): State {
+  switch (action.type) {
+    case CREATE:
+      return createCase(state, action);
+    case CHANGE:
+      return changeCase(state, action);
+    case CLEAN:
+      return cleanCase(state, action);
+    default:
+      return state;
+  }
+}
+&nbsp;
+export function getDraft(state: State, subjectId: string = null): Draft {
+  return state.get(subjectId);
+}
+&nbsp;
+export function hasDraft(state: State, subjectId: string = null): boolean {
+  return state.has(subjectId);
+}
+&nbsp;
+export function isValid(draft: Draft): boolean {
+  return !!draft.text;
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon May 01 2017 23:31:15 GMT+0300 (Финляндия (лето))
+</div>
+</div>
+<script src="..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\sorter.js"></script>
+</body>
+</html>

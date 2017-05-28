@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module":"commonjs",
+    "removeComments": true,
+    "jsx": "react",
+    "strict": true,
+    "strictNullChecks": false,
+    "experimentalDecorators": true,
+    "pretty": true,
+    "noUnusedLocals": true
+  },
+  "exclude": [
+    "coverage",
+    "node_modules",
+    "styles"
+  ]
+}

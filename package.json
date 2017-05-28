@@ -1,0 +1,71 @@
+{
+  "name": "message-tree",
+  "version": "1.0.0",
+  "description": "Demo application",
+  "scripts": {
+    "start": "npm run gulp | npm run backend",
+    "gulp": "gulp",
+    "backend": "ws -n -s index.html | node src/backend/index.js",
+    "test": "jest --watchAll --noStackTrace --coverage",
+    "tslint": "tslint -c tslint.json -p tsconfig.json --type-check 'src/**/*.{ts,tsx}'"
+  },
+  "author": "Stanislav Solodii",
+  "dependencies": {
+    "@types/dateformat": "^1.0.1",
+    "@types/node": "^7.0.5",
+    "@types/react": "^15.0.16",
+    "@types/react-dom": "^0.14.23",
+    "@types/react-redux": "^4.4.37",
+    "@types/react-router-dom": "^4.0.4",
+    "@types/websocket": "0.0.33",
+    "bootstrap": "^3.3.7",
+    "dateformat": "^2.0.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.3",
+    "redux": "^3.6.0",
+    "redux-observable": "^0.14.1",
+    "rxjs": "^5.4.0",
+    "uuid": "^3.0.1",
+    "websocket": "^1.0.24"
+  },
+  "devDependencies": {
+    "@types/enzyme": "^2.7.9",
+    "@types/jest": "^19.2.2",
+    "@types/redux-mock-store": "0.0.7",
+    "browserify": "^13.3.0",
+    "enzyme": "^2.8.2",
+    "eslint": "^3.19.0",
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.3.0",
+    "gulp-uglify": "^2.0.1",
+    "jest": "^19.0.2",
+    "less-plugin-autoprefix": "^1.5.1",
+    "less-plugin-clean-css": "^1.5.1",
+    "local-web-server": "^1.2.7",
+    "react-addons-test-utils": "^15.5.1",
+    "react-test-renderer": "^15.5.4",
+    "redux-mock-store": "^1.2.3",
+    "ts-jest": "^19.0.14",
+    "tsify": "^2.0.8",
+    "tslint": "^5.1.0",
+    "tslint-react": "^3.0.0",
+    "typescript": "^2.3.2",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "jest": {
+    "verbose": true,
+    "bail": true,
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ]
+  }
+}
