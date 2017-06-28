@@ -8,75 +8,46 @@ import {
   cleanDraft,
   submitDraft
 } from '../actions/drafts';
-import * as fromReducers from '../reducers';
-import { Draft } from '../reducers/draftsBySubject';
+import * as selectors from '../state/selectors';
+import { State } from '../state/types';
 import ReplyFormComponent, {
   Props as ComponentProps
 } from '../components/ReplyFormComponent';
 
-type State = fromReducers.State;
-
 export interface Props {
-  subjectId?: string;
+  subjectId: ComponentProps['subjectId'];
 }
 
 export interface StateProps {
-  draft: Readonly<Draft>;
-  isValid: boolean;
+  draft: ComponentProps['draft'];
+  isValid: ComponentProps['isValid'];
 }
 
 export interface DispatchProps {
-  changeDraft: typeof changeDraft;
-  submitDraft: typeof submitDraft;
-  cleanDraft: typeof cleanDraft;
+  onChange: ComponentProps['onChange'];
+  onSubmit: ComponentProps['onSubmit'];
+  onCancel: ComponentProps['onCancel'];
 }
 
 export function mapStateToProps(state: State, props: Props): StateProps {
   const { subjectId } = props;
   return {
-    draft: fromReducers.getDraft(state, subjectId),
-    isValid: fromReducers.isDraftValid(state, subjectId)
+    draft: selectors.getDraft(state, subjectId),
+    isValid: selectors.isDraftValid(state, subjectId)
   };
 }
 
 export function mapDispatchToProps(dispatch: Dispatch<State>): DispatchProps {
   return bindActionCreators({
-    changeDraft,
-    submitDraft,
-    cleanDraft
+    onChange: changeDraft,
+    onSubmit: submitDraft,
+    onCancel: cleanDraft
   }, dispatch);
-}
-
-export function mergeProps(
-  stateProps: StateProps,
-  dispatchProps: DispatchProps
-): ComponentProps {
-  const {
-    draft: { subjectId }
-  } = stateProps;
-  const {
-    changeDraft,
-    submitDraft,
-    cleanDraft
-  } = dispatchProps;
-  return {
-    ...stateProps,
-    onChange(value: string): void {        
-      changeDraft(value, subjectId);
-    },
-    onSubmit(): void {
-      submitDraft(subjectId);
-    },
-    onCancel(): void {
-      cleanDraft(subjectId);
-    }
-  };
 }
 
 const ReplyFormContainer = connect(
   mapStateToProps,
-  mapDispatchToProps,
-  mergeProps
+  mapDispatchToProps
 )(ReplyFormComponent);
 
 ReplyFormContainer.displayName = 'ReplyFormContainer';

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as dateformat from 'dateformat';
-import { Message } from '../reducers/messagesBySubject';
+import { Message } from '../state/types';
 
 export interface Props {
   message: Readonly<Message>;

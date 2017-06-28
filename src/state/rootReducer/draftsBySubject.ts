@@ -6,28 +6,22 @@ import {
   ChangeDraft,
   CleanDraft,
   CreateDraft
-} from '../actions/drafts';
+} from '../../actions/drafts';
+import {
+  Draft,
+  DraftsBySubject
+} from '../types';
+import { ROOT_SUBJECT } from '../constants';
 
-export interface Draft {
-  subjectId: string;
-  text: string;
-}
+type State = Readonly<DraftsBySubject>;
 
-interface WritableState {
-  [subjectId: string]: Draft;
-}
-
-export type State = Readonly<WritableState>;
-
-export const emptySubject = '';
-
-const emptyDraft: Readonly<Draft> = {
-  subjectId: emptySubject,
+const rootDraft: Readonly<Draft> = {
+  subjectId: ROOT_SUBJECT,
   text: ''
 };
 
 export const defaultState: State = {
-  [emptySubject]: { ...emptyDraft }
+  [ROOT_SUBJECT]: { ...rootDraft }
 };
 
 export function createCase(state: State, action: CreateDraft): State {
@@ -57,10 +51,12 @@ export function changeCase(state: State, action: ChangeDraft): State {
 
 export function cleanCase(state: State, action: CleanDraft): State {
   const { subjectId } = action;
-  const result: WritableState = { ...state };
-  subjectId
+  const result: DraftsBySubject = { ...state };
+
+  subjectId !== ROOT_SUBJECT
     ? delete result[subjectId]
-    : result[emptySubject] = { ...emptyDraft };  
+    : result[ROOT_SUBJECT] = { ...rootDraft };  
+  
   return result;
 }
 
@@ -78,29 +74,4 @@ export default function(
     default:
       return state;
   }
-}
-
-export function getSubjectIds(state: State): string[] {
-  return Object.keys(state);
-}
-
-export function getDraft(
-  state: State,
-  subjectId: string = emptySubject
-): Draft {
-  return state[subjectId];
-}
-
-export function hasDraft(
-  state: State,
-  subjectId: string = emptySubject
-): boolean {
-  return state.hasOwnProperty(subjectId);
-}
-
-export function isValid(
-  state: State,
-  subjectId: string = emptySubject
-): boolean {
-  return hasDraft(state, subjectId) && !!getDraft(state, subjectId).text;
 }

@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReplyFormComponent INVALID_DRAFT_SUBJECT renders correctly 1`] = `
+<div
+  className="form"
+>
+  <div>
+    <textarea
+      autoFocus={true}
+      className="input"
+      onChange={[Function]}
+      placeholder="Type your message here..."
+      value=""
+    />
+  </div>
+  <div>
+    <button
+      className="cancel"
+      onClick={[Function]}
+    >
+      Cancel
+    </button>
+    <button
+      className="submit"
+      disabled={true}
+      onClick={[Function]}
+    >
+      Submit
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ReplyFormComponent VALID_DRAFT_SUBJECT renders correctly 1`] = `
+<div
+  className="form"
+>
+  <div>
+    <textarea
+      autoFocus={true}
+      className="input"
+      onChange={[Function]}
+      placeholder="Type your message here..."
+      value="draft for 0a6a7bfd-a212-4ae1-8125-6c7486213a94"
+    />
+  </div>
+  <div>
+    <button
+      className="cancel"
+      onClick={[Function]}
+    >
+      Cancel
+    </button>
+    <button
+      className="submit"
+      disabled={false}
+      onClick={[Function]}
+    >
+      Submit
+    </button>
+  </div>
+</div>
+`;

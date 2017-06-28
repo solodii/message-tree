@@ -6,11 +6,11 @@ import {
 import { createEpicMiddleware } from 'redux-observable';
 import { Observable } from 'rxjs';
 import rootEpic, { Dependencies } from './epics';
-import rootReducer from './reducers';
+import rootReducer from './state/rootReducer';
 
 export default function() {
   const dependencies: Dependencies = {
-    socket: Observable.webSocket('ws://127.0.0.1:8080')
+    socket: Observable.webSocket('ws://127.0.0.1:8000')
   };
   const epicMiddleware = createEpicMiddleware(rootEpic, { dependencies });
   const composeEnhancers =

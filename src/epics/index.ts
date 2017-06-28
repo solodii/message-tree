@@ -8,7 +8,7 @@ import {
   Action,
   MiddlewareAPI
 } from 'redux';
-import { State } from '../reducers';
+import { State } from '../state/types';
 import appEpic from './app';
 import draftsEpic from './drafts';
 

@@ -1,66 +1,61 @@
 import * as React from 'react';
-import { Message } from '../reducers/messagesBySubject';
+import { MessageTree } from '../state/types';
+import { ROOT_SUBJECT } from '../state/constants';
 import ReplyFormContainer from '../containers/ReplyFormContainer';
 import MessageComponent from './MessageComponent';
 
 type ReplyCallback = (e: React.MouseEvent<HTMLAnchorElement>) => void;
 
 export interface Props {
-  hasMessages: (subjectId?: string) => boolean;
-  getMessages: (subjectId?: string) => Message[];
-  hasDraft: (subjectId?: string) => boolean;
+  messageTrees: MessageTree[];
   onReply: (subjectId: string) => void;
 }
 
 export default class MessageTreeComponent extends React.Component<Props, {}> {
   public render(): JSX.Element {
-    const { hasMessages } = this.props;
+    const treeCmp = this.renderTrees(
+      this.props.messageTrees
+    );
     return (
       <div>
-        <ReplyFormContainer />
-        {hasMessages() && this.renderList()}
+        <ReplyFormContainer subjectId={ROOT_SUBJECT} />
+        {treeCmp}
       </div>
     );
   }
 
-  private renderList(subjectId?: string): JSX.Element {
-    const {
-      hasMessages,
-      getMessages,
-      hasDraft
-    } = this.props;
-
-    const messages = getMessages(subjectId).map((message, index) => {
-      const { id } = message;
-      const replyFormOrLink = hasDraft(id)
-        ? this.renderReplyForm(id)
-        : this.renderReplyLink(id);      
+  private renderTrees(messageTrees: MessageTree[]): JSX.Element {
+    const trees = messageTrees.map((tree, index) => {
+      const {
+        message,
+        hasDraft,
+        children
+      } = tree;
+      const replyFormOrLink = hasDraft
+        ? this.renderReplyForm(message.id)
+        : this.renderReplyLink(message.id);
+      const subtrees = this.renderTrees(children);
       return (
         <div key={index}>
           <MessageComponent message={message} />
           {replyFormOrLink}
-          {hasMessages(id) && this.renderList(id)}
+          {subtrees}
         </div>
       );
     });
-
-    return (
-      <div className="message-list">
-        {messages}
-      </div>
-    );
+    return <div className="message-trees">{trees}</div>;
   }
 
-  private renderReplyForm(id: string): JSX.Element {
-    return <ReplyFormContainer subjectId={id} />;
+  private renderReplyForm(subjectId: string): JSX.Element {
+    return <ReplyFormContainer subjectId={subjectId} />;
   }
 
-  private renderReplyLink(id: string): JSX.Element {
+  private renderReplyLink(subjectId: string): JSX.Element {
     return (
       <a
         className="reply"
         href="#"
-        onClick={this.onReplyClick(id)}
+        onClick={this.onReplyClick(subjectId)}
       >
         reply
       </a>

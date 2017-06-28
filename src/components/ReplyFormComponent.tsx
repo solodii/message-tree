@@ -1,26 +1,27 @@
 import * as React from 'react';
-import { Draft } from '../reducers/draftsBySubject';
+import { Draft } from '../state/types';
 
 export interface Props {
+  subjectId: string;
   draft: Readonly<Draft>;
   isValid: boolean;
-  onChange: (value: string) => void;
-  onCancel: () => void;
-  onSubmit: () => void;
+  onChange: (value: string, subjectId: string) => void;
+  onCancel: (subjectId: string) => void;
+  onSubmit: (subjectId: string) => void;
 }
 
 export default class ReplyFormComponent extends React.Component<Props, {}> {
   constructor(props: Props) {
     super(props);
     this.onInputChange = this.onInputChange.bind(this);
+    this.onCancel = this.onCancel.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   public render(): JSX.Element {
     const {
       draft: { text },
-      isValid,
-      onCancel,
-      onSubmit
+      isValid
     } = this.props;
     return (
       <div className="form">
@@ -36,14 +37,14 @@ export default class ReplyFormComponent extends React.Component<Props, {}> {
         <div>
           <button
             className="cancel"
-            onClick={onCancel}
+            onClick={this.onCancel}
           >
             Cancel
           </button>
           <button
             className="submit"
             disabled={!isValid}
-            onClick={onSubmit}
+            onClick={this.onSubmit}
           >
             Submit
           </button>
@@ -53,6 +54,14 @@ export default class ReplyFormComponent extends React.Component<Props, {}> {
   }
 
   private onInputChange(e: React.ChangeEvent<HTMLTextAreaElement>): void {
-    this.props.onChange(e.target.value);
+    this.props.onChange(e.target.value, this.props.subjectId);
+  }
+
+  private onCancel(): void {
+    this.props.onCancel(this.props.subjectId);
+  }
+
+  private onSubmit(): void {
+    this.props.onSubmit(this.props.subjectId);
   }
 }

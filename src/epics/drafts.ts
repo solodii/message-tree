@@ -7,7 +7,7 @@ import {
   SubmitDraft,
   SUBMIT_DRAFT
 } from '../actions/drafts';
-import * as fromReducers from '../reducers';
+import * as selectors from '../state/selectors';
 import { AppEpic } from './';
 
 export const persistEpic: AppEpic<SubmitDraft> =
@@ -15,7 +15,7 @@ export const persistEpic: AppEpic<SubmitDraft> =
     const {
       isDraftValid,
       getDraft
-    } = fromReducers;
+    } = selectors;
     return action$
       .ofType(SUBMIT_DRAFT)
       .filter((action) =>

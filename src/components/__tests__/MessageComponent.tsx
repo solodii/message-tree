@@ -1,32 +1,17 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import * as dateformat from 'dateformat';
+import { messages } from '../../mocks/data';
 import MessageComponent, { Props } from '../MessageComponent';
 
 describe('MessageComponent', () => {
-  const text = Math.random().toString();
-  const date = new Date();
   const initialProps: Props = {
-    message: {
-      id: '',
-      subjectId: '',
-      text,
-      date
-    }
+    message: messages[0]
   };
   const wrapper = shallow<Props, {}>(
     <MessageComponent {...initialProps} />
   );
 
-  test('is .message', () => {
-    expect(wrapper.is('.message')).toBeTruthy();
-  });
-
-  test('renders text', () => {
-    expect(wrapper.contains(<span>{text}</span>)).toBeTruthy();
-  });
-
-  test('renders formated date', () => {
-    expect(wrapper.contains(<span>{dateformat(date)}</span>)).toBeTruthy();
+  test('renders correctly', () => {
+    expect(wrapper).toMatchSnapshot();
   });
 });

@@ -1,10 +1,10 @@
 import { MiddlewareAPI } from 'redux';
-import { State } from '../../reducers';
-import data from '../data';
+import { State } from '../../state/types';
+import { state } from '../data/state';
 
-export default function createMiddlewareAPI(): MiddlewareAPI<State> {
+export function createMiddlewareAPI(): MiddlewareAPI<State> {
   return {
     dispatch: jest.fn(),
-    getState: jest.fn(() => data)
+    getState: jest.fn(() => state)
   };
 }

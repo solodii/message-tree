@@ -9,11 +9,12 @@ describe('AppComponent', () => {
     <AppComponent {...initialProps} />
   );
 
-  test('MessageTreeContainer is rendered', () => {
-    expect(wrapper.find('MessageTreeContainer').length).toEqual(1);
+  test('renders correctly', () => {
+    expect(wrapper).toMatchSnapshot();
   });
 
   test('initApp is called after componentDidMount', () => {
+    expect(initApp).toHaveBeenCalledTimes(0);
     (wrapper.instance() as AppComponent).componentDidMount();
     expect(initApp).toHaveBeenCalledTimes(1);
   });

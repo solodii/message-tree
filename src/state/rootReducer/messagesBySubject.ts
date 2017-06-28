@@ -4,25 +4,16 @@ import {
   MessagesAction,
   AppendMessage,
   LoadMessages
-} from '../actions/messages';
+} from '../../actions/messages';
+import {
+  Message,
+  MessagesBySubject
+} from '../types';
 
-export interface Message {
-  id: string;
-  subjectId: string;
-  date: Date;
-  text: string;
-}
-
-interface WritableState {
-  [subjectId: string]: Message[];
-}
-
-export type State = Readonly<WritableState>;
-
-export const emptySubject = '';
+type State = Readonly<MessagesBySubject>;
 
 export function loadMessagesCase(state: State, action: LoadMessages): State {
-  const result: WritableState = {};
+  const result: MessagesBySubject = {};
   action.messages.forEach((msg: Message) => {
     const { subjectId } = msg;
     const messages = result[subjectId] || [];
@@ -52,22 +43,4 @@ export default function(state: State = {}, action: MessagesAction): State {
     default:
       return state;
   }
-}
-
-export function getSubjectIds(state: State): string[] {
-  return Object.keys(state);
-}
-
-export function hasMessages(
-  state: State,
-  subjectId: string = emptySubject
-): boolean {
-  return state.hasOwnProperty(subjectId);
-}
-
-export function getMessages(
-  state: State,
-  subjectId: string = emptySubject
-): Message[] {
-  return state[subjectId];
 }

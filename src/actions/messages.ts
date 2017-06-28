@@ -1,4 +1,4 @@
-import { Message } from '../reducers/messagesBySubject';
+import { Message } from '../state/types';
 
 export const LOAD_MESSAGES = 'LOAD_MESSAGES';
 export const APPEND_MESSAGE = 'APPEND_MESSAGE';

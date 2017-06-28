@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageComponent renders correctly 1`] = `
+<div
+  className="message"
+>
+  <div>
+    <span>
+      Thu Nov 10 2016 10:01:00
+    </span>
+  </div>
+  <div>
+    <span>
+      first
+    </span>
+  </div>
+</div>
+`;

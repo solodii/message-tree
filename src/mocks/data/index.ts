@@ -1,10 +1,16 @@
-import { State } from '../../reducers';
-import draftsBySubject from './draftsBySubject';
-import messagesBySubject from './messagesBySubject';
-
-const data: State = {
+export * from './constants';
+export {
+  drafts,
   draftsBySubject,
-  messagesBySubject
-};
-
-export default data;
+  invalidDraft,
+  validDraft
+} from './drafts';
+export {
+  messages,
+  messagesById,
+  messagesBySubject,
+  messagesWithDraft,
+  messagesWithoutDraft,
+  messageTrees
+} from './messages';
+export { state } from './state';

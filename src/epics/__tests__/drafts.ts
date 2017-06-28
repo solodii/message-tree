@@ -8,9 +8,9 @@ import {
   cleanDraft
 } from '../../actions/drafts';
 import {
-  validSubject,
-  invalidSubject
-} from '../../mocks/data/draftsBySubject';
+  validDraft,
+  invalidDraft
+} from '../../mocks/data';
 import { persistEpic } from '../drafts';
 
 describe('persistEpic', () => {
@@ -23,7 +23,7 @@ describe('persistEpic', () => {
   });
 
   describe('draft is not valid', () => {
-    const subjectId = invalidSubject;
+    const { subjectId } = invalidDraft;
     const epic$ = persistEpic(
       ActionsObservable.of(submitDraft(subjectId)),
       store,
@@ -39,7 +39,7 @@ describe('persistEpic', () => {
   });
 
   describe('draft is valid', () => {
-    const subjectId = validSubject;
+    const { subjectId } = validDraft;
     const epic$ = persistEpic(
       ActionsObservable.of(submitDraft(subjectId)),
       store,

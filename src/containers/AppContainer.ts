@@ -3,12 +3,14 @@ import {
   bindActionCreators,
   Dispatch
 } from 'redux';
-import { State } from '../reducers';
+import { State } from '../state/types';
 import { initApp } from '../actions/app';
-import AppComponent from '../components/AppComponent';
+import AppComponent, {
+  Props as ComponentProps
+} from '../components/AppComponent';
 
 export interface DispatchProps {
-  initApp: () => void;
+  initApp: ComponentProps['initApp'];
 }
 
 export function mapDispatchToProps(dispatch: Dispatch<State>): DispatchProps {

@@ -1,0 +1,138 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`messageTrees 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "hasDraft": false,
+        "message": Object {
+          "date": 2016-11-10T08:03:00.000Z,
+          "id": "913d97b3-6e04-4c1e-a11c-222221abf00e",
+          "subjectId": "0a6a7bfd-a212-4ae1-8125-6c7486213a94",
+          "text": "third",
+        },
+      },
+    ],
+    "hasDraft": true,
+    "message": Object {
+      "date": 2016-11-10T08:01:00.000Z,
+      "id": "0a6a7bfd-a212-4ae1-8125-6c7486213a94",
+      "subjectId": "",
+      "text": "first",
+    },
+  },
+  Object {
+    "children": Array [],
+    "hasDraft": false,
+    "message": Object {
+      "date": 2016-11-10T08:02:00.000Z,
+      "id": "6c6f1976-ff5b-420b-bc9d-f7484f0ee53f",
+      "subjectId": "",
+      "text": "second",
+    },
+  },
+]
+`;
+
+exports[`messages 1`] = `
+Array [
+  Object {
+    "date": 2016-11-10T08:01:00.000Z,
+    "id": "0a6a7bfd-a212-4ae1-8125-6c7486213a94",
+    "subjectId": "",
+    "text": "first",
+  },
+  Object {
+    "date": 2016-11-10T08:02:00.000Z,
+    "id": "6c6f1976-ff5b-420b-bc9d-f7484f0ee53f",
+    "subjectId": "",
+    "text": "second",
+  },
+  Object {
+    "date": 2016-11-10T08:03:00.000Z,
+    "id": "913d97b3-6e04-4c1e-a11c-222221abf00e",
+    "subjectId": "0a6a7bfd-a212-4ae1-8125-6c7486213a94",
+    "text": "third",
+  },
+]
+`;
+
+exports[`messagesById 1`] = `
+Object {
+  "0a6a7bfd-a212-4ae1-8125-6c7486213a94": Object {
+    "date": 2016-11-10T08:01:00.000Z,
+    "id": "0a6a7bfd-a212-4ae1-8125-6c7486213a94",
+    "subjectId": "",
+    "text": "first",
+  },
+  "6c6f1976-ff5b-420b-bc9d-f7484f0ee53f": Object {
+    "date": 2016-11-10T08:02:00.000Z,
+    "id": "6c6f1976-ff5b-420b-bc9d-f7484f0ee53f",
+    "subjectId": "",
+    "text": "second",
+  },
+  "913d97b3-6e04-4c1e-a11c-222221abf00e": Object {
+    "date": 2016-11-10T08:03:00.000Z,
+    "id": "913d97b3-6e04-4c1e-a11c-222221abf00e",
+    "subjectId": "0a6a7bfd-a212-4ae1-8125-6c7486213a94",
+    "text": "third",
+  },
+}
+`;
+
+exports[`messagesBySubject 1`] = `
+Object {
+  "": Array [
+    Object {
+      "date": 2016-11-10T08:01:00.000Z,
+      "id": "0a6a7bfd-a212-4ae1-8125-6c7486213a94",
+      "subjectId": "",
+      "text": "first",
+    },
+    Object {
+      "date": 2016-11-10T08:02:00.000Z,
+      "id": "6c6f1976-ff5b-420b-bc9d-f7484f0ee53f",
+      "subjectId": "",
+      "text": "second",
+    },
+  ],
+  "0a6a7bfd-a212-4ae1-8125-6c7486213a94": Array [
+    Object {
+      "date": 2016-11-10T08:03:00.000Z,
+      "id": "913d97b3-6e04-4c1e-a11c-222221abf00e",
+      "subjectId": "0a6a7bfd-a212-4ae1-8125-6c7486213a94",
+      "text": "third",
+    },
+  ],
+}
+`;
+
+exports[`messagesWithDraft 1`] = `
+Array [
+  Object {
+    "date": 2016-11-10T08:01:00.000Z,
+    "id": "0a6a7bfd-a212-4ae1-8125-6c7486213a94",
+    "subjectId": "",
+    "text": "first",
+  },
+]
+`;
+
+exports[`messagesWithoutDraft 1`] = `
+Array [
+  Object {
+    "date": 2016-11-10T08:02:00.000Z,
+    "id": "6c6f1976-ff5b-420b-bc9d-f7484f0ee53f",
+    "subjectId": "",
+    "text": "second",
+  },
+  Object {
+    "date": 2016-11-10T08:03:00.000Z,
+    "id": "913d97b3-6e04-4c1e-a11c-222221abf00e",
+    "subjectId": "0a6a7bfd-a212-4ae1-8125-6c7486213a94",
+    "text": "third",
+  },
+]
+`;

@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`constants are correct 1`] = `
+Object {
+  "ROOT_SUBJECT": "",
+}
+`;

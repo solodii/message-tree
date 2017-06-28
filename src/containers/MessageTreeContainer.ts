@@ -4,33 +4,24 @@ import {
   Dispatch
 } from 'redux';
 import { createDraft } from '../actions/drafts';
-import * as fromReducers from '../reducers';
-import { Message } from '../reducers/messagesBySubject';
-import MessageTreeComponent from '../components/MessageTreeComponent';
-
-type State = fromReducers.State;
+import * as selectors from '../state/selectors';
+import { State } from '../state/types';
+import { ROOT_SUBJECT } from '../state/constants';
+import MessageTreeComponent, {
+  Props as ComponentProps
+} from '../components/MessageTreeComponent';
 
 export interface StateProps {
-  hasMessages: (subjectId?: string) => boolean;
-  getMessages: (subjectId?: string) => Message[];
-  hasDraft: (subjectId?: string) => boolean;
+  messageTrees: ComponentProps['messageTrees'];
 }
 
 export interface DispatchProps {
-  onReply: (subjectId: string) => void;
+  onReply: ComponentProps['onReply'];
 }
 
 export function mapStateToProps(state: State): StateProps {
   return {
-    hasMessages(subjectId?: string) {
-      return fromReducers.hasMessages(state, subjectId);
-    },
-    getMessages(subjectId?: string) {
-      return fromReducers.getMessages(state, subjectId);
-    },
-    hasDraft(subjectId?: string) {
-      return fromReducers.hasDraft(state, subjectId);
-    }
+    messageTrees: selectors.getMessageTrees(state, ROOT_SUBJECT)
   };
 }
 

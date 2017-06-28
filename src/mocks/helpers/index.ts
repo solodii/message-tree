@@ -1,2 +1,3 @@
-export { default as createMiddlewareAPI } from './createMiddlewareAPI';
-export { default as createDependencies } from './createDependencies';
+export { createMiddlewareAPI } from './createMiddlewareAPI';
+export { createDependencies } from './createDependencies';
+export { MockCmpData } from './MockCmpData';

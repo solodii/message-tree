@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageTreeComponent with messageTrees renders correctly 1`] = `
+<div>
+  <ReplyFormContainer
+    subjectId=""
+  />
+  <div
+    className="message-trees"
+  >
+    <div>
+      <MessageComponent
+        message={
+          Object {
+            "date": 2016-11-10T08:01:00.000Z,
+            "id": "0a6a7bfd-a212-4ae1-8125-6c7486213a94",
+            "subjectId": "",
+            "text": "first",
+          }
+        }
+      />
+      <ReplyFormContainer
+        subjectId="0a6a7bfd-a212-4ae1-8125-6c7486213a94"
+      />
+      <div
+        className="message-trees"
+      >
+        <div>
+          <MessageComponent
+            message={
+              Object {
+                "date": 2016-11-10T08:03:00.000Z,
+                "id": "913d97b3-6e04-4c1e-a11c-222221abf00e",
+                "subjectId": "0a6a7bfd-a212-4ae1-8125-6c7486213a94",
+                "text": "third",
+              }
+            }
+          />
+          <a
+            className="reply"
+            href="#"
+            onClick={[Function]}
+          >
+            reply
+          </a>
+          <div
+            className="message-trees"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <MessageComponent
+        message={
+          Object {
+            "date": 2016-11-10T08:02:00.000Z,
+            "id": "6c6f1976-ff5b-420b-bc9d-f7484f0ee53f",
+            "subjectId": "",
+            "text": "second",
+          }
+        }
+      />
+      <a
+        className="reply"
+        href="#"
+        onClick={[Function]}
+      >
+        reply
+      </a>
+      <div
+        className="message-trees"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MessageTreeComponent without messageTrees renders correctly 1`] = `
+<div>
+  <ReplyFormContainer
+    subjectId=""
+  />
+  <div
+    className="message-trees"
+  />
+</div>
+`;

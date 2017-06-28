@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`drafts 1`] = `
+Array [
+  Object {
+    "subjectId": "",
+    "text": "",
+  },
+  Object {
+    "subjectId": "0a6a7bfd-a212-4ae1-8125-6c7486213a94",
+    "text": "draft for 0a6a7bfd-a212-4ae1-8125-6c7486213a94",
+  },
+]
+`;
+
+exports[`draftsBySubject 1`] = `
+Object {
+  "": Object {
+    "subjectId": "",
+    "text": "",
+  },
+  "0a6a7bfd-a212-4ae1-8125-6c7486213a94": Object {
+    "subjectId": "0a6a7bfd-a212-4ae1-8125-6c7486213a94",
+    "text": "draft for 0a6a7bfd-a212-4ae1-8125-6c7486213a94",
+  },
+}
+`;
+
+exports[`invalidDraft 1`] = `
+Object {
+  "subjectId": "",
+  "text": "",
+}
+`;
+
+exports[`validDraft 1`] = `
+Object {
+  "subjectId": "0a6a7bfd-a212-4ae1-8125-6c7486213a94",
+  "text": "draft for 0a6a7bfd-a212-4ae1-8125-6c7486213a94",
+}
+`;
