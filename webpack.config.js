@@ -10,9 +10,7 @@ module.exports = {
       'react-dom',
       'react-redux',
       'redux',
-      'redux-observable',
-      'uuid',
-      'websocket'
+      'redux-observable'
     ],
     app: [
       './src/index.tsx',
